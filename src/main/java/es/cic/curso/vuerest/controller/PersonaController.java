@@ -1,5 +1,7 @@
 package es.cic.curso.vuerest.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,5 +21,10 @@ public class PersonaController {
     @GetMapping("/{id}")
     public Persona getPersona(@PathVariable Long id) {
         return personaService.findById(id).orElse(null);
+    }
+
+    @GetMapping
+    public List<Persona> getAllPersonas() {
+        return personaService.findAll();
     }
 }
