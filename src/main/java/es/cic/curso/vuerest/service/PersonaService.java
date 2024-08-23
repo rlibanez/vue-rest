@@ -1,5 +1,6 @@
 package es.cic.curso.vuerest.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,10 @@ public class PersonaService {
 
     @Autowired
     PersonaRepository personaRepository;
+
+    public List<Persona> findAll() {
+        return personaRepository.findAll();
+    }
 
     public Optional<Persona> findById(Long id) {
         return personaRepository.findById(id);
