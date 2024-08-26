@@ -33,4 +33,7 @@ public class PersonaService {
         return personaRepository.save(persona);
     }
 
+    public void deleteById(Long id) {
+        personaRepository.deleteById(id);
+    }
 }

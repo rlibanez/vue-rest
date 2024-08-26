@@ -3,6 +3,7 @@ package es.cic.curso.vuerest.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -34,13 +35,19 @@ public class PersonaController {
         return personaService.findAll();
     }
 
-    @PutMapping("/{id}")
-    public Persona updatePersona(@PathVariable Long id, @RequestBody Persona personaDetails) {
+    @PutMapping
+    public Persona updatePersona(@RequestBody Persona personaDetails) {
+        Long id = personaDetails.getId();
         return personaService.findById(id).map(persona -> {
             persona.setNombre(personaDetails.getNombre());
             persona.setApellidos(personaDetails.getApellidos());
             persona.setAnnoNacimiento(personaDetails.getAnnoNacimiento());
             return personaService.save(persona);
         }).orElse(null);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deletePersona(@PathVariable Long id) {
+        personaService.deleteById(id);
     }
 }
