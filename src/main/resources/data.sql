@@ -8,3 +8,6 @@ CREATE TABLE PERSONA (
 INSERT INTO PERSONA (nombre, apellidos, anno_nacimiento) VALUES ('Juan', 'Pérez', 1980);
 INSERT INTO PERSONA (nombre, apellidos, anno_nacimiento) VALUES ('María', 'González', 1990);
 INSERT INTO PERSONA (nombre, apellidos, anno_nacimiento) VALUES ('Carlos', 'Rodríguez', 1975);
+INSERT INTO PERSONA (nombre, apellidos, anno_nacimiento) VALUES ('Ana', 'Pérez', 2001);
+INSERT INTO PERSONA (nombre, apellidos, anno_nacimiento) VALUES ('Pepe', 'González', 1999);
+INSERT INTO PERSONA (nombre, apellidos, anno_nacimiento) VALUES ('Paula', 'Rodríguez', 1965);

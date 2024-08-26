@@ -29,4 +29,8 @@ public class PersonaService {
         return persona.getId();
     }
 
+    public Persona save(Persona persona) {
+        return personaRepository.save(persona);
+    }
+
 }
