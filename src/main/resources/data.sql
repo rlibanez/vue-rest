@@ -15,3 +15,4 @@ INSERT INTO PERSONA (nombre, apellidos, anno_nacimiento) VALUES ('Alicia', 'Rodr
 INSERT INTO PERSONA (nombre, apellidos, anno_nacimiento) VALUES ('Rebeca', 'Pérez', 2011);
 INSERT INTO PERSONA (nombre, apellidos, anno_nacimiento) VALUES ('Francisco', 'López', 1995);
 INSERT INTO PERSONA (nombre, apellidos, anno_nacimiento) VALUES ('Rosa', 'Ramírez', 2001);
+INSERT INTO PERSONA (nombre, apellidos, anno_nacimiento) VALUES ('Rostik', 'R', 2000);
