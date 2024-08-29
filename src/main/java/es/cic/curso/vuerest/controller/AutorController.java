@@ -12,48 +12,48 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import es.cic.curso.vuerest.model.Persona;
-import es.cic.curso.vuerest.service.PersonaService;
+import es.cic.curso.vuerest.model.Autor;
+import es.cic.curso.vuerest.service.AutorService;
 
 @RestController
 // 1) Configuración de CORS a nivel de clase. Alternativa a
 // CorsConfiguration.java
 // @CrossOrigin(origins = "http://localhost:5174") // Permite solicitudes desde
 // http://localhost:8080
-@RequestMapping("/api/persona")
-public class PersonaController {
+@RequestMapping("/api/autor")
+public class AutorController {
 
     @Autowired
-    private PersonaService personaService;
+    private AutorService autorService;
 
     @GetMapping("/{id}")
-    public Persona getPersona(@PathVariable Long id) {
-        return personaService.findById(id).orElse(null);
+    public Autor getAutor(@PathVariable Long id) {
+        return autorService.findById(id).orElse(null);
     }
 
     @GetMapping
-    public List<Persona> getAllPersonas() {
-        return personaService.findAll();
+    public List<Autor> getAllAutores() {
+        return autorService.findAll();
     }
 
     @PostMapping
-    public Persona createPersona(@RequestBody Persona persona) {
-        return personaService.save(persona);
+    public Autor createAutor(@RequestBody Autor persona) {
+        return autorService.save(persona);
     }
 
     @PutMapping
-    public Persona updatePersona(@RequestBody Persona personaDetails) {
+    public Autor updateAutor(@RequestBody Autor personaDetails) {
         Long id = personaDetails.getId();
-        return personaService.findById(id).map(persona -> {
+        return autorService.findById(id).map(persona -> {
             persona.setNombre(personaDetails.getNombre());
             persona.setApellidos(personaDetails.getApellidos());
             persona.setAnnoNacimiento(personaDetails.getAnnoNacimiento());
-            return personaService.save(persona);
+            return autorService.save(persona);
         }).orElse(null);
     }
 
     @DeleteMapping("/{id}")
-    public void deletePersona(@PathVariable Long id) {
-        personaService.deleteById(id);
+    public void deleteAutor(@PathVariable Long id) {
+        autorService.deleteById(id);
     }
 }
