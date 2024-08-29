@@ -23,4 +23,18 @@ public class LibroService {
         return libroRepository.findById(id);
     }
 
+    public long crearLibro(String titulo, String isbn, int annoPublicacion) {
+        Libro libro = new Libro(titulo, isbn, annoPublicacion);
+        libroRepository.save(libro);
+        return libro.getId();
+    }
+
+    public Libro save(Libro libro) {
+        return libroRepository.save(libro);
+    }
+
+    public void deleteById(Long id) {
+        libroRepository.deleteById(id);
+    }
+
 }

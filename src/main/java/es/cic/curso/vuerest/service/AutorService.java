@@ -29,8 +29,8 @@ public class AutorService {
         return persona.getId();
     }
 
-    public Autor save(Autor persona) {
-        return autorRepository.save(persona);
+    public Autor save(Autor autor) {
+        return autorRepository.save(autor);
     }
 
     public void deleteById(Long id) {
