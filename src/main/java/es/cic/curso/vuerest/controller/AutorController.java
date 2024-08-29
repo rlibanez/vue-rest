@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.cic.curso.vuerest.model.Autor;
+import es.cic.curso.vuerest.model.Libro;
 import es.cic.curso.vuerest.service.AutorService;
 
 @RestController
@@ -56,4 +57,10 @@ public class AutorController {
     public void deleteAutor(@PathVariable Long id) {
         autorService.deleteById(id);
     }
+
+    @GetMapping("/{id}/libros")
+    public List<Libro> getLibrosByAutor(@PathVariable Long id) {
+        return autorService.findLibrosByAutorId(id);
+    }
+
 }

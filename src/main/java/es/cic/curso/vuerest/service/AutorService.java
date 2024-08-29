@@ -7,13 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import es.cic.curso.vuerest.model.Autor;
+import es.cic.curso.vuerest.model.Libro;
 import es.cic.curso.vuerest.repository.AutorRepository;
+import es.cic.curso.vuerest.repository.LibroRepository;
 
 @Service
 public class AutorService {
 
     @Autowired
     AutorRepository autorRepository;
+
+    @Autowired
+    private LibroRepository libroRepository;
 
     public List<Autor> findAll() {
         return autorRepository.findAll();
@@ -35,5 +40,9 @@ public class AutorService {
 
     public void deleteById(Long id) {
         autorRepository.deleteById(id);
+    }
+
+    public List<Libro> findLibrosByAutorId(Long autorId) {
+        return libroRepository.findByAutorId(autorId);
     }
 }
